@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my first page</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+<div    id="box"></div>
+<script type="text/javascript">
+let w = 100;
+
+function go() {
+	w =w + 5;
+box.style.width =  w +  "px";
+box.style.height = w + "px"
+box.style.transform = "rotate("+w+"deg)"
+requestAnimationFrame(go)
+}
+requestAnimationFrame(go)
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#box {
+	height: 100px;
+	width: 200px;
+	border-radius:10%;
+ background-color:green;
+ border :1px solid black;
+ box-shadow:10px 10px 0px 0px #e6ff00;
+ display: none;
+}
+#hs{
+	cursor:pointer;
+
+}

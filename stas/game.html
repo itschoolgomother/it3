@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<title></title>
+</head>
+<body>
+
+<div id="hero"></div>
+
+<script type="text/javascript">
+	// кнопка влево
+	let keyLeft = false;
+	// переменная, которую мы увеличиваем 
+	// чтобы двигать элемент
+	// увеличиваем ее в функции game()
+	let x = 0;
+
+	let keyRight = false;
+	
+	// слушатель события, когда клавиша нажата
+	document.addEventListener("keydown",nazhato, false);
+	//слушатель события, когда отпустили клавишу
+	document.addEventListener("keyup",otpustili, false);
+
+
+
+
+	function nazhato(e){
+		//проверяем нажата ли клавиша с виртуальным
+		// кодом 68 (буква D),  и записываем в нашу переменную
+		// keyLeft значение true
+		if (e.keyCode == 68) {
+			keyLeft = true;
+		}
+		if (e.keyCode == 65) {
+			keyRight = true;
+		}
+	}
+
+	function otpustili(e){
+		//проверяем отпустили ли клавишу с  виртуальным
+		// кодом 68 (буква D),  и записываем в нашу переменную
+		// keyLeft значение false
+		if (e.keyCode == 68) {
+			keyLeft = false;
+		}
+		if (e.keyCode == 65) {
+			keyRight = false;
+		}
+	}
+
+	function game() {
+		if (keyLeft) {
+			// увеличение х на 5
+			x = x + 5;
+			// id элемента.его сss(style).свойствоСSS = "значение"
+			hero.style.left = x + "px";
+		}
+		if(keyRight){
+			x = x - 5;
+			hero.style.left = x + "px";
+		}
+		// обработчик функции, чтобы происходила
+		// анимация. нужно вызвать внутри функции
+		// и 
+		requestAnimationFrame(game);
+	}	
+		// за функцией
+		requestAnimationFrame(game);
+
+
+
+</script>
+</body>
+</html>

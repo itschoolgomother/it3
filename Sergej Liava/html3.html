@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="720"></canvas>
+<style type="text/css">
+	#canvas{
+		border: 1px solid black;
+	}
+
+</style>
+<script type="text/javascript">
+	let cnv = document.getElementById("canvas")
+	let ctx = cnv.getContext("2d")
+	let player1 = new Image();
+	let y = cnv.height/2;
+	let ballx = cnv.width/2;
+	let bally = cnv.height/2;
+	let playerDown = false;
+	let playerUp = false;
+	let ballr = 30;
+	let dx = 2;
+	let dy = 2;
+	let playerHeight = 100;
+	let playerWidht = 100;
+	player1.src = "image.png";
+	document.addEventListener("keydown", nazhato, false)
+	document.addEventListener("keyup", otzhali, false)
+	function nazhato(e){
+		if(e.keyCode == 83){
+			playerDown = true;
+		}
+		if(e.keyCode == 87){
+			playerUp = true;
+		}
+	}
+	function otzhali(e){
+		if(e.keyCode == 83){
+			playerDown = false;
+		}
+		if(e.keyCode == 87){
+			playerUp = false;
+		}
+	}
+	function ball(){
+		ctx.beginPath();
+		ctx.arc(ballx, bally, ballr, 0, Math.PI*2);
+		ctx.fillStyle = "red";
+		ctx.fill();
+		ctx.closePath();
+	}
+	function game(){
+	
+		ctx.clearRect(0, 0, cnv.width, cnv.height)
+			ball();
+			ballx = ballx + dx;
+			bally = bally + dy;
+		ctx.drawImage(player1, 0, y, playerWidht, playerHeight);
+		if(bally + ballr >= cnv.height ||bally - ballr <= 0){
+			dy = -dy;
+		}if(ballx + ballr >= cnv.width ||ballx - ballr <= 0){
+			dx = -dx;
+		}
+		if(playerDown){
+			y+=10;
+			if(y + playerHeight >= cnv.height){
+				y-=10
+			}	
+		}
+		if(playerUp){
+			y-=10	
+			if(y <= 0){
+				y+=10;
+			}																								;
+		}
+	} 
+	setInterval(game, 1);
+</script>
+</body>
+</html>

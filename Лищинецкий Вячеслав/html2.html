@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css2.css">
+	<title></title>
+</head>
+<body>
+	<span id="hideShow">Hide/Show</span>
+	<div id="example"></div>
+	<script type="text/javascript">
+		let a =document.querySelector("#hideShow");
+		a.onmouseover = function() {
+			example.style.display = "block";
+		};
+		a.onmouseout = function() {
+			example.style.display = "none";
+		};
+		
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+#ShowHide1 { cursor: pointer; }
+#example1{
+	display: ;
+	padding: 5px;
+	background-color: #CDE;
+	border: 1px solid;
+	width: 200px;
+	height: 150px;
+	border-radius: 10%;
+	box-shadow: 10px 10px 0px 0px green;
+	position: absolute;
+}

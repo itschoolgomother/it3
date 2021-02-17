@@ -1,0 +1,114 @@
+а<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body>
+	<div id="hero"></div>
+	<div id="coin"></div>
+	<div id="sc"></div>
+	<script type="text/javascript">
+	let x = 0;
+	let y = 0;
+	let keyRight = false;
+	let keyLeft = false;
+	let keyVnis = false;
+	let keyBerh = false;
+	let heroHeight = 200;
+	hero.style.height = heroHeight + "px"
+	let heroWidnh =205;
+	let show = "block";
+	hero.style.width = heroWidnh + "px"
+	coin.style.left = Math.random()* window.innerWidth + "px"
+    coin.style.top = Math.random()* window.innerHeight + "px"
+    let intersection = function(a,b) {
+    	return a.top + a.height >= b.top &&
+    	b.top + b.height >= a.top &&
+    	a.left + a.width >= b.left &&
+    	b.left + b.width >= a.left
+    }
+
+
+	document.addEventListener("keydown", keyPressed, false);
+	document.addEventListener("keyup", keyUnpressed, false);
+
+	function keyPressed(e){
+		if (e.keyCode == 68) {			
+			keyRight = true;
+		}
+		if (e.keyCode == 65) {
+			keyLeft = true;
+		}
+		if (e.keyCode == 83) {
+			keyVnis =true
+		}
+		if (e.keyCode == 87) {
+			keyBerh =true
+		}
+	}
+
+	function keyUnpressed(e){
+		if (e.keyCode == 68) {
+			keyRight = false;
+		}
+		if (e.keyCode == 65) {
+			keyLeft = false
+		}
+		if (e.keyCode == 83) {
+			keyVnis = false
+		}
+		if (e.keyCode == 87) {
+			keyBerh = false
+		}
+	}
+
+	function game(){
+		if (keyRight) {
+			x+=5;
+			hero.style.left = x+"px"
+			if (x>= window.innerWidth - heroWidnh) {
+				 x -=5
+			}
+		}
+		if (keyLeft) {
+			x-=5
+			hero.style.left = x+"px"
+			if (x<=0 ) {
+				x += 5;
+			}
+		}
+		if (keyVnis) {
+			y+=5
+			hero.style.top = y+"px"
+			if (y>= window.innerHeight - heroHeight) {
+				y -= 5;
+			}
+		}
+			if (keyBerh) {
+			y-=5
+			hero.style.top = y+"px"
+			hero.style.backroundColor = "black"
+			if (y<=0) {
+				y += 5;
+			}
+		}
+		let box = hero.getBoundingClientRect()
+		let box1 = coin.getBoundingClientRect()
+		if (intersection(box,box1)) {
+			show = "none";
+			coin.style.display = show
+			if (show == "none") {
+				show = "block"
+				coin.style.display = show
+				coin.style.left = Math.random()* window.innerWidth + "px"
+    			coin.style.top = Math.random()* window.innerHeight + "px"
+			}
+
+		}
+		requestAnimationFrame(game);
+	}
+	requestAnimationFrame(game);
+	</script>
+</body>
+</html>			

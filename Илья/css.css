@@ -1,0 +1,15 @@
+/*селектор{
+ свойство:значение;
+свойство1:значение;
+}
+*/
+body{
+	background-image: linear-gradient(to left top,red,blue);
+height: 100vh;
+background-repeat:no-repeat;
+}
+#box{
+   width: 100px;
+height: 100px;
+background-color:red;
+}

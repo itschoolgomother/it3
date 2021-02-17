@@ -1,0 +1,9 @@
+#box{
+	width: 103px;
+	height: 304px;
+	background-color: gold;
+	position: absolute;
+	left: 150px;
+	top: 300px;
+
+}

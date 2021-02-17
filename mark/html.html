@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+	<div id="box"></div>
+<script type="text/javascript">
+	let x = 300;
+	let y = 100;
+	let dx = 10; 
+	let dy = 10;
+	box.onclick = function(){
+		box.style.background = "red";
+		alert("helo")
+	}
+	function dddd(){
+		x+=dx;
+		y+=dy;
+		box.style.left = x + "px";
+		box.style.top = y + "px";
+		// box.style.top = x + "px";
+		if(x +  103 >= window.innerWidth || x <=0){
+			dx = -dx;
+		}else if( y + 304 >=window.innerHeight  || y <=0){
+			dy = -dy;
+
+		}
+	}
+	setInterval(dddd, 100)
+</script>
+</body>
+</html>

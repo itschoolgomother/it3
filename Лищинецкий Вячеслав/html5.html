@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css5.css">
+	<title></title>
+</head>
+<body>
+	<div id="hero">
+		<div class="head"></div>
+	</div>
+	<div id="coin"></div>
+	<div id="sc"></div>
+	<script type="text/javascript">
+		// рандомное расположение монеты в начале
+		coin.style.left = Math.random()*window.innerWidth-coin.width+"px"
+		coin.style.top = Math.random()*window.innerHeight-coin.height+"px"
+
+		let x = 0;
+		let y = 0;
+		// увеличиваем размер блока на эту переменную
+		let hSize = 0.1;
+		// храним значение блок, чтобы потом присвоить 'none'
+		let hide = "block";
+		let score = 0;
+		let vpravo = false;
+		let vlevo = false;
+		let vniz = false;
+		let vverx = false;
+		let r = 0;
+		// функция пересечения
+		let intersection = function (c,h) {
+			return h.top + h.height >= c.top &&
+			 c.top + c.height >= h.top &&
+			 h.left + h.width >= c.left &&
+			  c.left + c.width >= h.left
+
+		}
+		document.addEventListener('keydown', nazhal, false);
+		document.addEventListener('keyup', otpustil, false);
+
+		function nazhal(e) {
+			if(e.keyCode == 68){
+				vpravo = true;
+			}
+			if(e.keyCode == 65){
+				vlevo = true;
+			}
+			if(e.keyCode == 83) {
+				vniz = true;
+			}
+			if(e.keyCode == 87) {
+				vverx = true;
+			}
+		}
+
+		function otpustil(e) {
+			if(e.keyCode == 68){
+				vpravo = false;
+			}
+
+			if(e.keyCode == 65){
+				vlevo = false;
+			}
+			if(e.keyCode == 83) {
+				vniz = false;
+			}
+			if(e.keyCode == 87) {
+				vverx = false;
+			}
+		}
+
+		function game() {
+			if(vpravo == true){
+				x = x + 5;
+				hero.style.left = x + "px";
+				hero.style.backgroundColor = "pink";
+			
+				// hero.style.transform = "rotate(90deg)"
+				r+=2;
+				hero.style.transform = "rotate(" + r + "deg)"
+				if(r == 90){
+					r-=2;
+				}
+				if (x + 100 >= window.innerWidth) {
+					x = x - 5
+				}
+			}
+			if(vlevo){
+				x = x - 5;
+				hero.style.left = x + "px";
+				hero.style.backgroundColor = "purple";
+				hero.style.transform = "rotate(-90deg)"
+				if (x <= 0) {
+					x = x + 5;
+				}
+			}
+			if(vniz) {
+				y = y + 5;
+				hero.style.top = y + "px";
+				hero.style.backgroundColor = "red";
+				hero.style.transform = "rotate(180deg)"
+				if (y + 100 >= window.innerHeight ) {
+					y = y - 5;
+				}
+			}
+			if(vverx) {
+				y = y - 5;
+				hero.style.top = y + "px";
+				hero.style.backgroundColor = "teal";
+				hero.style.transform = "rotate(0deg)"
+				if (y <= 0) {
+					y = y + 5;
+				}
+			}
+			// if (score == 10 ){
+			// 	document.location.reload();
+			// }
+
+			// объявляем новые переменные чтобы пересечение сработало
+			let boxHero = hero.getBoundingClientRect();
+			let boxCoin = coin.getBoundingClientRect();
+			// пересечение
+			if (intersection(boxHero,boxCoin)) {
+				hide = "none"
+				coin.style.display = hide;
+				//увеличение
+				// hSize = hSize + 1;
+				score++;
+				document.getElementById('sc').innerHTML = "score: "+ score;
+			}
+			//рандомное положение блока после пересечения
+			if (hide == "none") {
+				hide = "block"
+				coin.style.display = hide;
+				coin.style.left = Math.random()*1000+"px"
+				coin.style.top = Math.random()*1000+"px"
+			}
+			// увеличение
+			// hero.style.transform = "scale(" + hSize + ")" 
+			requestAnimationFrame(game);
+		}
+			requestAnimationFrame(game);
+
+	</script>
+
+</body>
+</html> 

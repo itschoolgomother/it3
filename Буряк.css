@@ -1,0 +1,10 @@
+div{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	animation: q 5s 2;
+}
+@keyframes q{
+	from{background-color: red;}
+	to{background-color: blue;}
+}

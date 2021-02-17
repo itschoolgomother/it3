@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="CSS2.css">
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<div id="box1"></div>
+	<script type="text/javascript">
+		box.style.height = "250px"
+		box.style.width = "500px"
+		box.style.backgroundColor = "green"
+		box.onmouseover = function(){
+				box.style.transition = "all 1s 0.2s linear"
+		}
+
+		box1.style.height = "500px"
+		box1.style.width = "500px"
+		box1.style.backgroundColor = "red"
+		box1.onmouseover = function(){
+
+				box1.style.transition = "all 0.1s 0.2s ease-in-out";
+		}
+		box1.onclick = function(){
+			box1.style.transform = "scale(1000) translate(50px, 0) "
+		}
+	</script>
+</body>
+</html>

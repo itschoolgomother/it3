@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html2</title>
+	<link rel="stylesheet" type="text/css" href="css2.css">
+</head>
+<body>
+	<span id="hidden">hide/show</span>
+	<div class="square" id="lvumba"></div>
+	
+	<script type="text/javascript">
+		lvumba.style.background = "lightgreen";
+		lvumba.style.width = "150px";
+		lvumba.style.height = "150px";
+		lvumba.style.border = "2px solid red";
+		lvumba.onclick = function () {
+			lvumba.style.display = "none";
+			alert("ЛЬВУМБА!");
+		}
+		
+		window.onload = function (e) {
+			var a = document.querySelector('#hidden');
+			a.onmouseout = function () {
+				lvumba.style.display = "none";
+			}
+			a.onmouseover = function (e) {
+				lvumba.style.display = "block";
+			}
+		}
+	</script>
+</body>
+</html>

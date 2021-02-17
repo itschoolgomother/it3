@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#block{
+			height: 1000px;
+			width: 1280px;
+			background-image: url(1.png);
+			background-size: 100%;
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			background-size: 1280px;
+			animation: draw 1s infinite linear;
+		}
+		@keyframes draw{
+			from{background-position: 1280px 0px;}
+			to{background-position: 0px 0px;}
+		}
+		#car{
+			position: fixed;
+			bottom: 100px;
+		}
+	</style>
+	<div id="block"></div>
+	<div id="car">
+	<div id="roof" style="margin-left: 17px;
+	width: 100px;
+	height: 50px;
+	background-color: red;"></style></div>
+	<div id="body" style="width: 150px;
+	height: 25px;
+	background-color: blue;"></div>
+	<div id="body" style="
+	position: relative;
+	width: 25px;
+	height: 25px;
+	border-radius: 50px;
+	background-color: gray;
+	left: 17px;
+	bottom: 13px;"></div>
+	<div id="body" style="
+	position: relative;
+	width: 25px;
+	height: 25px;
+	border-radius: 50px;
+	background-color: gray;
+	left: 100px;
+	bottom: 38px;"></div>
+	</div>
+</body>
+</html>

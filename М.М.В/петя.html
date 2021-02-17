@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>petya</title>
+</head>
+<body>
+	<div id="box">
+		<div class="eye"></div>
+	</div>
+	<style type="text/css">
+		#box{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border-radius: 50%;
+			border: 1px solid black;
+		}
+		.eye{
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: black; 
+		}
+	</style>
+	<script type="text/javascript">
+		let keyA = false;
+		let w = 0;
+		let keyB = false;
+		let h = 0;
+		let keyC = false;
+		let r = 0;
+		//слушатель событей, когда клавиша нажата
+		document.addEventListener("keydown",keypressed,false);
+		//слушатель события, когда клавишу отпустили
+		document.addEventListener("keyup",keyunpressed,false);
+		//функция, котрою слушает слушатель "keydown"
+		function keypressed(e) {
+			//проверяем какая клавиша нажата и записиваем значение true
+			if (e.keyCode == 65) {
+				keyA = true;
+			}
+			if (e.keyCode == 66) {
+				keyB = true;
+			}
+			if (e.keyCode == 67) {
+				keyC = true;
+			}
+		}
+		//функция, которую слушает слушатель "keyup"
+	  function keyunpressed(e) {
+	  	//проверяем какая клавиша отжата и записиваем значение false
+			if (e.keyCode == 65) {
+				keyA = false;
+			}
+			if (e.keyCode == 66) {
+				keyB = false;
+			}
+			if (e.keyCode == 67) {
+				keyC = false;
+			}	
+		}
+		//хранит в себе информацию о том что произойдет, когда значение переменной равно true
+		function work() {
+			if (keyA) {
+				w += 1;
+				box.style.width = w + "px";
+			}
+			if (keyB) {
+				h += 1;
+				box.style.height = h + "px";
+			}
+			if (keyC) {
+				r += 1;
+				box.style.transform = "rotate("+ r + "deg)"
+			}
+		//активация анимации (чтоби сработало надо записать внутри и вне функции)
+		requestAnimationFrame(work)
+		}
+		requestAnimationFrame(work)
+	</script>
+</body>
+</html>

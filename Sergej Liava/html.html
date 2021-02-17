@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<title></title>
+</head>
+<body>
+<span id="hs">Hide/Show</span>
+<div id="box"></div>
+<script type="text/javascript">
+	alert("Hello")
+	hs.onmouseover = function(){
+		box.style.display = "block";
+		hs.style.color = "red";
+	};
+	hs.onmouseout = function(){
+		box.style.display = "none";
+		hs.style.color = "black";
+
+	};
+	hs.onclick = function(){
+		hs.style.textShadow = "10px 10px 2px green";
+	};
+
+	function numbers(){
+		let a = 10;
+		let b = 16;
+		a = 101;
+		if (b>a) {
+			console.log("ето правда");
+		}else{
+			console.log("ты не угадал:)")
+		}
+
+	};
+
+	</script>
+</body>
+</html>

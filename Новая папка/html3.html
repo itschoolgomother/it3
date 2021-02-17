@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="720"></canvas>
+<style type="text/css">
+	#canvas{
+		border: 1px solid black;
+	}
+
+</style>
+<script type="text/javascript">
+	let cnv = document.getElementById("canvas")
+	let ctx = cnv.getContext("2d")
+	let player1 = new Image();
+	let y = cnv.height/2;
+	let playerDown = false;
+	let playerUp = false;
+	player1.src = "image.png";
+	document.addEventListener("keydown", nazhato, false)
+	document.addEventListener("keyup", otzhali, false)
+	function nazhato(e){
+		if(e.keyCode == 83){
+			playerDown = true;
+		}
+		if(e.keyCode == 87){
+			playerUp = true;
+		}
+	}
+	function otzhali(e){
+		if(e.keyCode == 83){
+			playerDown = false;
+		}
+		if(e.keyCode == 87){
+			playerUp = false;
+		}
+	}
+	function game(){
+		ctx.clearRect(0, 0, cnv.width, cnv.height)
+		ctx.drawImage(player1, 0, y, 100, 100);
+		if(playerDown){
+			y+=10;
+		}
+		if(playerUp){
+			y-=10;
+		}
+	} 
+	setInterval(game, 100);
+</script>
+</body>
+</html>

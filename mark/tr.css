@@ -1,0 +1,54 @@
+.dox{
+	width:250px;
+	height:150px;
+	border:2px solid black;
+	background-color: red;
+	margin: 5px auto;
+} 
+.dox1:hover{
+	background-color: gold;
+}
+.dox2{
+transition-property: background-color;
+transition-duration: 1s;
+transition-delay:0.2s;
+transition-timing-function: ease;
+}
+.dox2:hover{
+	background-color: gold;
+}
+.dox3{
+	transition:all 1s 0.2s ease-out; 
+}
+.dox3:hover{
+	background-color:black;
+	width:300px;
+	height:300px;
+}
+.dox4{
+	transition:all 2s 0.2s cubic-bezier(.1, -1.5,.1,2.5);
+
+}
+.dox4:hover{
+	transform:rotate(360deg);
+	background-color:orange;
+}
+.dox5{
+	transition:all 1s linear;
+}
+.dox5:hover{
+	transform: skew(100deg,100deg)
+}
+.dox6{
+	transition:all 1s linear;
+}
+.dox6:hover{
+	transform:scale(0.01);
+	background-color: orange; 
+}
+.dox7{
+	transition:all  1s linear; 
+}
+.dox7:hover{
+	transform: translate(150px,0) rotate(360deg);
+}

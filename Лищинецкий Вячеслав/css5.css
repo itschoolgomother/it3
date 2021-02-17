@@ -1,0 +1,34 @@
+body{
+	background-color: black;
+}
+#hero{
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	background-color: green;
+	position: absolute;
+}
+.head{
+	width: 40px;
+	height: 40px;
+	background-color: yellow;
+	position: absolute;
+	left: 30px;
+}
+#coin{
+	width: 50px;
+	height: 50px;
+	border: 1px solid white;
+	background-color: gold;
+	border-radius: 50%;
+	position: absolute;
+}
+#sc {
+	width: 60px;
+	height: 25px;
+	border: 1px solid black;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+

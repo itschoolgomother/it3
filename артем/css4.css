@@ -1,0 +1,66 @@
+.box{
+	height: 150px;
+	width: 250px;
+	background-color: red;
+	border: 2px solid black;
+	margin: 5px auto;
+}
+.box1:hover{
+	background-color: black;
+}
+.box2{
+	transition-property: all;
+	transition-duration: 1s;
+	transition-delay: 0.2s;
+	transition-timing-function: ease; 
+	color: green;
+
+}
+.box2:hover{
+	background-color: black;
+	transform-origin: 0 50%; 
+	transform: perspective(300px) rotateY(30deg);
+
+}
+}
+.box3{
+	transition: all 1s 0.2s ease-out;
+
+}
+.box3:hover{
+	background-color: black;
+	width: 200px;
+	height: 100px;
+	transform-origin: 0 50%; 
+	transform: perspective(300px) rotateY(30deg);
+}
+.box4{
+	transition: all 1s cubic-bezier(.1, .9, .9, 1.5);
+}
+.box4:hover{
+	background-color: yellow;
+	transform: rotate(360deg) scale(0.1);
+}
+.box5{
+	transition: all 3s 0.2s ease-out;
+}
+.box5:hover{
+	background-color: black;
+	transform: scale(2);
+}
+.box6{
+	transition: all 1s 0.1s ease;
+}
+.box6:hover{
+	transform: translate(50px,50px);
+	background-color: orange;
+}
+.box7{
+	transition:  all 1s 0.3s  cubic-bezier(.1, .9, .9, 1.5);
+}
+}
+.box7:hover{
+	transform: skew(20deg,20deg );
+	background-color: pink;
+	border-radius: 50%;
+}

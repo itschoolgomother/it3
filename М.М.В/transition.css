@@ -1,0 +1,61 @@
+.box{
+	width: 250px;
+	height: 200px;
+	background-color: blue;
+	border:2px solid black;
+	margin: 5px auto;
+}
+.box1{
+	color: white;
+}
+.box1:hover{
+	background-color: red;
+}
+.box2{
+	transition-property: background-color;
+	transition-duration: 1.5s;
+	transition-delay: 0.2s;
+	transition-timing-function: ease;
+}
+.box2:hover{
+	background-color: red;
+	
+}
+.box3{
+	transition: all 1s 0.2s linear;
+}
+.box3:hover{
+	background-color: red;
+	width: 300px;
+	height: 250px;	
+}
+.box4{
+	transition: all 1s linear;
+}
+.box4:hover{
+	background-color: red;
+	transform: rotate(360deg);
+}
+.box5{
+	transition: all 3s 0.2s linear;
+}
+.box5:hover{
+	background-color: red;
+	transform: scale(3);
+	
+}
+.box6{
+	transition: all 1s ease;
+}
+.box6:hover{
+	background-color: red;
+	transform: translate(-50px,0);
+}
+.box7{
+	transition: all 1.5s linear;
+}
+.box7:hover{
+	background-color: red;
+	transform:rotate(360deg) scale(0.5) translate(150px,150px);
+	border-radius: 20%;
+}

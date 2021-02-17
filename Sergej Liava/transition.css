@@ -1,0 +1,42 @@
+.box{
+	height: 100px;
+	width: 150px;
+	background-color: red;
+	border:1px solid black;
+	margin:5px auto;
+}
+.box1:hover{
+	background-color: yellow;
+}
+.box2{
+	transition-property: background-color; /*свойство на которое 
+	распространяется трансформация*/
+	transition-duration: 1s; /*продолжительность */
+	transition-delay: 0.2s; /*задержка*/
+	transition-timing-function: ease; /*график функции*/
+}
+.box2:hover{
+	background-color: yellow;
+}
+.box3{
+	transition: all 1s 0.2s ease-in;
+}
+.box3:hover{
+	background-color: blue;
+	height: 50px;
+	width: 200px;
+}
+.box4{
+	transition: all 2s 0.4s ease-out;
+}
+.box4:hover{
+	background-color: green;
+	transform: rotate(360deg);/* вращать*/
+}
+.box5{
+	transition: all 3s 0.3s cubic-bezier(0.1, 0.9, 0.9, -1.5);
+}
+.box5:hover{
+	background-color: purple;
+	transform: scale(10);/*измененее размера*/
+}

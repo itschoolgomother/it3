@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<title></title>
+</head>
+<body>
+	<canvas id="ds" width="288" height="512"></canvas>
+	<style type="text/css">
+		#ds{
+			border: 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		// подготавливаем для работы канвас
+		let cvn = document.getElementById('ds');
+		let ctx = cvn.getContext('2d');
+
+		// добавить в канвас изображение
+		let bg = new Image();
+		let bird = new Image();
+		let fg = new Image();
+		let pipeBottom = new Image();
+		let pipeUp = new Image();
+		// указать путь к изображение
+		bg.src = 'flappy_bird_bg.png';
+		bird.src = 'flappy_bird_bird.png';
+		fg.src = 'flappy_bird_fg.png';
+		pipeBottom.src = 'flappy_bird_pipeBottom.png';
+		pipeUp.src = 'flappy_bird_pipeUp.png'
+
+		let pipe = [];
+		pipe[0] = {
+			x : cvn.width,
+			y : 0
+		} 
+		let score = 0;
+		let birdX = 10;
+		let birdY = 150;
+		let gravity = 2;
+		let step = 90;
+		document.addEventListener('keydown', move);
+		function move() {
+			birdY-=20;
+		}
+		function game() {
+
+			// нарисовать изображение (перменнаяКартинки, иксКоордината, игрикКоордината)
+			ctx.drawImage(bg,0,0);
+			ctx.drawImage(bird,birdX,birdY);
+			 for (let i = 0; i < pipe.length; i++ ) {
+			 	ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
+			 	ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + step);
+
+			 	pipe[i].x--;
+
+			 	if (pipe[i].x==130) {
+			 		pipe.push({
+			 			x : cvn.width,
+			 			y : Math.random() * pipeUp.height - pipeUp.height
+			 		})
+			 	}
+				if (birdX+bird.width >= pipe[i].x &&
+					birdX <= pipe[i].x+pipeUp.width &&
+					(birdY <= pipe[i].y+pipeUp.height ||
+						birdY + bird.height >= pipe[i].y + pipeUp.height + step)||
+					birdY + bird.height >= cvn.height - fg.height) {
+					document.location.reload();
+				}
+				if(pipe[i].x == 10){
+					score++
+				}
+			 }
+			 ctx.drawImage(fg, 0, cvn.height - fg.height)
+			 ctx.beginPath();
+			 ctx.font = "40px"
+			 ctx.fillText("score "+score, 0, 500)
+			 ctx.closePath();
+			// увеличиваем координату у
+			birdY = birdY + gravity;
+			requestAnimationFrame(game);
+		}
+			requestAnimationFrame(game);
+			// function getCandies(guests) {
+			// 	let candy = 0;
+			// 	for(let i = 0; i <= guests; i++){
+			// 		candy = candy + i;
+			// 	}
+			// 	return candy;
+			// }
+	</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body>
+<div id="hero"></div>
+<div id="coin"></div>
+<div id="sc">$: </div>
+<script type="text/javascript">
+	coin.style.width = "100px";
+	coin.style.height = "100px";
+	coin.style.backgroundColor = "blue";
+	coin.style.position = "absolute";
+	coin.style.left= Math.random()*window.innerWidth-100+"px";
+	coin.style.top= Math.random()*window.innerHeight-100+"px";
+	let show = "block";
+	let keyleft = false;
+	let keyright=false;
+	let x = 0
+	let y = 0;
+	let keyvverh = false;
+	let keyvniz = false;
+	document.addEventListener("keydown",nazhato,false);
+	document.addEventListener("keyup",otpustili,false);
+	let intersection = function(a,b){
+		return a.top + a.height >= b.top &&
+		b.top + b.height >= a.top &&
+		a.left + a.width >= b.left &&
+		b.left + b.width>=a.left;
+
+	}
+	function nazhato(e) {
+		if(e.keyCode == 68){
+			keyright = true;
+		}
+		if (e.keyCode == 65) {
+			keyleft = true;
+		}
+		if (e.keyCode == 83) {
+			keyvniz = true;
+		}
+		if (e.keyCode == 87) {
+			keyvverh = true;
+		}
+	}
+
+	function otpustili(e) {
+		if(e.keyCode==68){
+			keyright = false;
+		}
+		if(e.keyCode==65){
+			keyleft = false;
+		}
+		if (e.keyCode == 83) {
+			keyvniz = false;
+		}
+		if (e.keyCode == 87) {
+			keyvverh = false;
+		}
+	}
+
+	function geme(){
+		let box = hero.getBoundingClientRect();
+		let box1 = coin.getBoundingClientRect();
+		if(intersection(box, box1)){
+			show = "none";
+			coin.style.display = show;
+			if (show=="none") {
+				show = "block";
+				coin.style.display = show;
+				coin.style.left= Math.random()*window.innerWidth-100+"px";
+				coin.style.top= Math.random()*window.innerHeight-100+"px";
+			}
+		}
+		if (keyright) {
+			x+=5;
+			hero.style.left = x + "px";
+		}
+		if (keyleft) {
+			x-=5;
+			hero.style.left = x + "px";
+		}
+		if (keyvverh) {
+			y-=5;
+			hero.style.top = y + "px";
+		}
+		if (keyvniz) {
+			y+=5;
+			hero.style.top = y + "px";
+		}
+		requestAnimationFrame(geme);
+	}
+	requestAnimationFrame(geme)
+</script>
+</body>
+</html>
