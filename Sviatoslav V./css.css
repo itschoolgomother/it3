@@ -1,0 +1,33 @@
+ul{
+	list-style-type: square;
+	color: blue;
+}
+body{
+	background-color: red;
+}
+.first {
+	color: black;
+}
+.second{
+	color: yellow;
+	font-weight: bold;
+}
+.thisd{
+	color: green;
+	font-style: italic;
+}
+.fourth{
+	text-decoration: underline;
+}
+.fifth{
+	color: violet;
+	font-weight: bold;
+}
+.sixth{
+	color: pink;
+	text-decoration: line-through;
+}
+.seventh{
+	color: teal;
+	text-decoration: overline;
+}
