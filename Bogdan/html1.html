@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css1.css">
+</head>
+<body>
+<span id="hs">Hide/Show</span>
+<div id="box"></div>
+<script type="text/javascript">
+let a = document.querySelector("#hs");
+a.onmouseover = function(){
+box.style.display = "block";
+hs.style.color = "red";
+hs.style.textDecoration = "underline";
+}
+a.onmouseout = function(){
+box.style.display = "none";
+hs.style.color = "black"
+hs.style.textDecoration = "none";
+}
+</script>
+</body>
+</html>

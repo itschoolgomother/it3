@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id = "box"></div>
+<script type="text/javascript">
+let w = 100;
+let h = 100;
+let s = 1;
+let colors =["red","blue","green"]
+box.style.width = w + "px";
+box.style.height = h + "px";
+box.style.backgroundColor = "red";
+box.onmouseover = function() {
+s += 2;
+box.style.transform = "scale("+s+")"
+for (let i = 0; i < colors.length;i++){
+box.style.backgroundColor = colors[i];
+}
+}
+</script>
+</body>
+</html>

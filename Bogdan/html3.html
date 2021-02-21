@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="720"></canvas>
+<style type="text/css">
+	#canvas{
+		border: 1px solid black;
+	}
+
+</style>
+<script type="text/javascript">
+	let cnv = document.getElementById("canvas")
+	let ctx = cnv.getContext("2d")
+	let player1 = new Image();
+	let y = cnv.height/2;
+	let playerDown = false;
+	let playerUp = false;
+	let bollX = cnv.width/2;
+	let bollY = cnv.height/2;
+	let bollR = 30;
+	let dx = Math.random()*10;
+	let dy = Math.random()*10;
+	let playerheight = 100;
+	let playerwidth = 100;
+	let player1X = 0;
+	let player2 = new Image();
+	let keyPlayer2d = false;
+	let keyPlayer2u = false;
+	let player2X = 150 ;
+	let player2Y = 650 ;
+	let player2Width = 150;
+	let player2Height = 150;
+player2.src  = "image.png";
+	player1.src = "image.png";
+	document.addEventListener("keydown", nazhato, false)
+	document.addEventListener("keyup", otzhali, false)
+	function nazhato(e){
+		if(e.keyCode == 83){
+			playerDown = true;
+		}
+		if(e.keyCode == 87){
+			playerUp = true;
+		}
+		if(e.keyCode == 38){
+			keyPlayer2u = true;
+		}
+		if(e.keyCode == 40){
+			keyPlayer2d = true;
+		}
+	}
+	function otzhali(e){
+		if(e.keyCode == 83){
+			playerDown = false;
+		}
+		if(e.keyCode == 87){
+			playerUp = false;
+		}
+      if(e.keyCode == 38){
+			keyPlayer2u = false;
+		}
+		if(e.keyCode == 40){
+			keyPlayer2d = false;
+		}
+	}
+	
+	
+	function boll (){
+	ctx.beginPath();
+	ctx.arc(bollX,bollY,bollR,0,Math.PI*2);
+	ctx.fillStyle = "red";
+	ctx.fill();
+	ctx.closePath();
+	}
+	function game(){
+
+		ctx.clearRect(0, 0, cnv.width, cnv.height)
+		ctx.drawImage(player1, player1X, y, playerwidth, playerheight);
+		if(playerDown){
+			y+=10;
+        if(y + playerheight>=cnv.height){
+        	y-=10
+        }
+        
+		}
+		if(playerUp){
+			y-=10;
+		if(y<=0){
+			y+=10;
+		}
+		}
+		boll();
+		bollX= bollX + dx;
+		bollY= bollY + dy;
+		if(bollY+bollR>=cnv.height || bollY-bollR<=0){
+		dy = -dy
+		}
+		if(bollX+bollR>=cnv.width ){
+		dx = -dx
+		}else if(bollX + dx <  0 + player1X + playerwidth){
+        if(bollY>y && bollY < y+playerheight){
+        		dx = -dx;
+        }
+		}
+		
+	} 
+	setInterval(game, 10);
+</script>
+</body>
+</html>

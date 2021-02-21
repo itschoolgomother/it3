@@ -1,0 +1,14 @@
+#box{
+height: 100px;
+width: 250px;
+ border-radius:10%;
+ background-color: #CDE;
+ border: 1px solid black;
+ box-shadow: 10px 10px 0px 0px #00ffe2;
+ display: none;
+ text-decoration:underline; 
+}
+#hs{
+cursor: pointer;
+}
+ghjvhgvhgcvkyvvhjvhjv
