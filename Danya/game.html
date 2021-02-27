@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>game</title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body>
+	<div id="hero">
+		<div id="eye"></div>
+		<div id="mouth"></div>
+	</div>
+	<div id="restart"><span>restart</span></div>
+	<div id="coin"></div>
+	<div id="point">score:0</div>
+	<img src="klipartz.com.png" id="pacman"></img>
+	<script type="text/javascript">
+		coin.style.top = Math.random()*window.innerHeight -50 + "px";
+		coin.style.left = Math.random()*window.innerHeight -50 + "px";
+		let stop = 0;
+		let x = 15;
+		let eX = 1150;
+		let eY = 50;
+		let eDx = 7;
+		let eDy = 7;
+		let y = 15;
+		let show = "block";
+		let score = 0;
+		let colors = ["red","blue","green"]
+		let rightpressed = false;
+		let leftpressed = false;
+		let toppressed = false;
+		let downpressed = false;
+		restart.onclick = function () {
+			location.reload();
+		} 
+
+		let intersection = function (h,c) {
+			return h.top + h.height >= c.top &&
+			c.top + c.height >= h.top &&
+			h.left + h.width >= c.left &&
+			c.left + c.width >= h.left
+		};
+		document.addEventListener("keydown",keypressed,false);
+		document.addEventListener("keyup",keyunpressed,false);
+		function keypressed(e) {
+			if (e.keyCode == 68) {
+				rightpressed = true;
+			}
+			if (e.keyCode ==65) {
+				leftpressed = true;
+			}
+			if (e.keyCode ==87) {
+				toppressed = true;
+			}
+			if (e.keyCode ==83) {
+				downpressed = true;
+			}
+		}
+		function keyunpressed(e) {
+			    if (e.keyCode == 68) {
+				rightpressed = false;
+			}
+			if (e.keyCode ==65) {
+				leftpressed = false;
+			}
+			if (e.keyCode ==87) {
+				toppressed = false;
+			}
+			if (e.keyCode ==83) {
+				downpressed = false;
+			}
+		}
+			function game() {
+			pacman.style.left = eX + "px";
+			pacman.style.top = eY + "px";
+			eX += eDx;
+			eY += eDy;
+			if (eY + 100 >= window.innerHeight || eY <= 0) {
+				eDy = -eDy;
+			}
+			if (eX + 100 >= window.innerWidth || eX <= 0) {
+				eDx = -eDx;
+			}
+
+
+		    if (rightpressed && stop<1) {
+			x = x + 1
+			hero.style.left = x + "%";
+			hero.style.backgroundColor = "blue";
+			if (x >= 95) {
+				x -= 1;
+			}
+		    }
+			
+		    if (leftpressed && stop<1) {
+			x = x - 1
+			hero.style.left = x + "%";
+			hero.style.backgroundColor = "yellow";
+			if (x <= 0) {
+				x += 1
+			}
+		    }
+		    if (toppressed && stop<1) {
+			y = y - 1
+			hero.style.top = y + "%";
+			hero.style.backgroundColor = "red";
+			if (y <= 0) {
+				y += 1;
+			}
+		    }
+		    if (downpressed && stop<1) {
+			y = y + 1
+			hero.style.top = y + "%";
+			hero.style.backgroundColor = "green";
+			if (y >= 97) {
+				y -= 1;
+			}
+		    }
+		let box = hero.getBoundingClientRect()
+		let box1 = coin.getBoundingClientRect()
+		let box2 = pacman.getBoundingClientRect()
+		if (intersection(box, box2)) {
+			stop++;
+			restart.style.display = "block";
+		}
+		if (intersection(box, box1)) {
+			    show = "none";
+			coin.style.display = show;
+			score += 1;
+			point.innerHTML = "score: " + score;
+		if (show == "none") {
+				show  = "block";
+			coin.style.display = show;
+		coin.style.top = Math.random()*window.innerHeight -50 + "px";
+		coin.style.left = Math.random()*window.innerHeight -50 + "px";
+			}
+		}
+		switch(score){
+			case 10:
+			coin.style.backgroundColor = colors[0]
+			break;
+			case 25:
+ 			coin.style.backgroundColor = colors[1]
+ 			break;
+		}
+		requestAnimationFrame(game)
+			}
+			requestAnimationFrame(game)
+	</script>
+</body>
+</html>
