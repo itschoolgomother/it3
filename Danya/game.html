@@ -138,10 +138,31 @@
 		switch(score){
 			case 10:
 			coin.style.backgroundColor = colors[0]
+			if(eDx > 0 ){
+				eDx = 10;
+			}else{
+				eDx =-10;
+			}
+			if (eDy > 0){
+				eDy = 10;
+			}else{
+				eDy = -10;
+			}	
 			break;
 			case 25:
  			coin.style.backgroundColor = colors[1]
+ 			if(eDx > 0 ){
+				eDx = 10;
+			}else{
+				eDx =-10;
+			}
+			if (eDy > 0){
+				eDy = 10;
+			}else{
+				eDy = -10;
+			}	
  			break;
+ 			
 		}
 		requestAnimationFrame(game)
 			}
