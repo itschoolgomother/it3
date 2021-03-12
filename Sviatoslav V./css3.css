@@ -1,0 +1,61 @@
+.box{
+	width: 150px;
+	height: 100px;
+	background-color: grey;
+	border: 2px solid black;
+	margin: 10px auto;
+}
+.box1:hover{
+	background-color: red;
+}
+.box2{
+	/*для каких будет свойств применится переход*/
+	transition-property: all;
+	/*продолжительность*/
+	transition-duration: 1s;
+	/*задержка*/
+	transition-delay: 0.2s;
+	/*график зависимости прогресса от времени */
+	transition-timing-function: linear;
+}
+.box2:hover{
+	background-color: red;
+}
+.box3{
+	transition: all 1s 0.2s linear;
+}
+.box3:hover{
+	background-color: blue;
+	/*вращать блок */
+	transform: rotate(360deg);
+}
+.box4{
+	transition: all 1s linear;
+}
+.box4:hover{
+	background-color: green;
+	/*изменение размера*/
+	transform: scale(0.5);
+}
+.box5{
+	transition:all 1s linear;
+}
+.box5:hover{
+	transform: skew(15deg,15deg);
+	background-color: yellow;
+}
+.box6{
+	transition:all 1s linear;
+}
+.box6:hover{
+	background-color: black;
+	/*сдвиг*/
+	transform: translate(50px, -50px);
+}
+.box7{
+	transition:all 1s linear;
+}
+.box7:hover{
+	background-color: black;
+	transform: rotate(360deg) scale(2);
+}
