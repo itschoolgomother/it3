@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="fbi" width="1000" height="1000" >
+</canvas>
+<script type="text/javascript" id="fbi">
+	let cnv = document.getElementById('fbi');
+	let ctx = cnv.getContext('2d');
+	let tank = new Image();
+	let tw = 100;
+	let th = 100;
+	let tx = Math.random()*(cnv.width - tw)
+	let ty = Math.random()*(cnv.height - th) 
+	let  dir ;
+	tank.src = '/home/it3/Документы/yan 228/pngkey.com-car-top-view-png-9645727.png'
+		let vpravo = false;
+		let vlevo = false;
+		let vniz = false;
+		let vverx = false;
+		document.addEventListener('keydown', nazhal, false);
+		document.addEventListener('keyup', otpustil, false);
+
+		function nazhal(e) {
+			if(e.keyCode == 68){
+				vpravo = true;
+			}
+			if(e.keyCode == 65){
+				vlevo = true;
+			}
+			if(e.keyCode == 83) {
+				vniz = true;
+			}
+			if(e.keyCode == 87) {
+				vverx = true;
+			}
+		}
+
+		function otpustil(e) {
+			if(e.keyCode == 68){
+				vpravo = false;
+			}
+
+			if(e.keyCode == 65){
+				vlevo = false;
+			}
+			if(e.keyCode == 83) {
+				vniz = false;
+			}
+			if(e.keyCode == 87) {
+				vverx = false;
+			}
+		}
+
+	function  game() {
+		ctx.clearRect(0,0,cnv.width,cnv.height)
+		ctx.drawImage(tank,tx,ty,tw,th);
+		if(vpravo){
+			tx+=5
+			dir= "right"
+		}
+		if(vlevo){
+			tx-=5
+			dir= "left"
+		}
+		if(vniz){
+			ty+=5
+			dir= "down"
+		}if(vverx){
+			ty-=5
+			dir= "up"
+		}
+	}
+
+	setInterval(game,1)
+</script>
+</body>
+</html>
