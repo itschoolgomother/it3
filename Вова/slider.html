@@ -24,18 +24,33 @@
 	let slides = document.getElementsByClassName("carousel-item");
 	let i = 0;
 	next.addEventListener("click", nextSlide)
+	back.addEventListener("click", backSlide)
 	function slidePosition() {
 		for(let slide of slides){
 			slide.classList.remove("carousel-item-visible")
 			slide.classList.add("carousel-item-hidden")
 		}
-		slides[slides.length-1].classList.add("carousel-item-visible");
+		slides[i].classList.add("carousel-item-visible");
 	}
 	function nextSlide(){
+		for (let slide of slides) {
+		slide.style.animation ="next 1s";
+		}
 		if(i == slides.length-1){
 			i = 0;
 		}else{
 			i++
+		}
+		slidePosition()
+	}
+	function backSlide(){
+		for (let slide of slides) {
+		slide.style.animation ="back 1s";
+		}
+		if(i == 0){
+			i = slides.length-1;
+		}else{
+			i--
 		}
 		slidePosition()
 	}
