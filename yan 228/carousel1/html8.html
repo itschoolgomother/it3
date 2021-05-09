@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css3.css">
+</head>
+<body>
+	<div class="carousel">
+		<div class="carousel-item visible">
+			<img src="img.jpg">		
+		</div>
+		<div class="carousel-item">
+			<img src="img2.jpg">		
+		</div>
+		<div class="carousel-item">
+			<img src="img3.jpg">		
+		</div>
+		<div class="carousel-btns">
+			<button id="back"><</button>
+			<button id="next">></button>
+		</div>
+		<div id="dotes">
+		
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let slides = document.getElementsByClassName('carousel-item')
+		for(let i = 0; i < slides.length; i++){
+			dotes.innerHTML += '<div class=\"dot\"></div>'
+		}
+		let i = 0;
+		let dots = document.getElementsByClassName('dot');
+		
+		next.addEventListener("click", nextSlides);
+		back.addEventListener("click", backSlides);
+		function slidePosition() {
+			for(let slide of slides){
+				slide.classList.remove("visible")
+				slide.classList.add("hiden")
+			}
+			slides[i].classList.add("visible")
+		}
+		function nextSlides () {
+		dots[i].style.backgroundColor = 'white';	
+			if (i==slides.length-1) {
+				i=0;
+			}else{
+				i++;
+			}
+			slidePosition();
+			dots[i].style.backgroundColor = 'grey';
+		}
+		function backSlides () {
+			dots[i].style.backgroundColor = 'white';
+			if (i==0) {
+				i=slides.length-1;
+			}else{
+				i--
+			}
+			slidePosition()
+			dots[i].style.backgroundColor = 'grey';
+		}
+	</script>
+</body>
+</html>
