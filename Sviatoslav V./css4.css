@@ -9,14 +9,12 @@ body{
 	width: 600px;
 	position: relative;
 }
-.carousel .carousel-item{
+.carousel .carousel-item,
+.carousel .hidden{
 	display: none;
 }
 .carousel .visible{
 	display: block;
-}
-.carousel .hidden{
-	display: none;
 }
 .carousel .carousel-item img{
 	width: 100%;
